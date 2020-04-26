@@ -3,6 +3,13 @@
 <head>
     <meta charset="utf-8">
     <title>Таблица</title>
+    <script>
+        function sizePic() {
+            size=document.getElementById("size").value;
+            img=document.getElementById("pic");
+            img.width=60+20*size;
+        }
+    </script>
 </head>
 <body>
 <table align="center" border="1px" cellspacing="0" cellpadding="15" style="font-size: 20px">
@@ -10,7 +17,7 @@
     <tr>
         <td>
             <form>
-                <select >
+                <select>
                     <option>Вариант №1</option>
                     <option>Вариант №2</option>
                     <option>Вариант №3</option>
@@ -22,12 +29,12 @@
         </td>
         <td>
             <form>
-                <select size="5">
-                    <option>Вариант №1</option>
-                    <option>Вариант №2</option>
-                    <option>Вариант №3</option>
-                    <option>Вариант №4</option>
-                    <option>Вариант №5</option>
+                <select size="5" multiple>
+                    <option value="n1" selected>Вариант №1</option>
+                    <option value="n2">Вариант №2</option>
+                    <option value="n3">Вариант №3</option>
+                    <option value="n4">Вариант №4</option>
+                    <option value="n5">Вариант №5</option>
                 </select>
                 <button> Отправить </button>
             </form>
@@ -35,12 +42,12 @@
         <td>
             <form>
                 <p><b>Укажите цифру:</b></p>
-                <p><input type="number" alt="4"></p>
+                <p><input type="number" placeholder="4" ></p>
             </form>
         </td>
         <td>
             <form>
-                <select type="number">
+                <select type="number" multiple size="1" >
                     <option>Вариант №1</option>
                     <option>Вариант №2</option>
                     <option>Вариант №3</option>
@@ -52,9 +59,20 @@
         </td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>
+            <p><b>Размер рисунка</b> <input type="range" min="1" max="5" id="size" oninput="sizePic()" value="1"></p>
+            <p><img src="img/lion.PNG" id="pic" height="auto" width="200"></p>
+        </td>
+        <td align="center">
+            <form>
+                <p><button type="reset">Очистить</button></p>
+            </form>
+        </td>
+        <td>
+            <form>
+                <p><input type="search" placeholder="Поиск по сайту"> <button>Найти</button></p>
+            </form>
+        </td>
         <td>
             <form>
                 <p><b>Укажите цвет фона:</b> <input type="color" value="#ff0000"> <button><b>Выбрать</b></button></p>
@@ -90,7 +108,7 @@
         <td align="center">
             <form enctype="multipart/form-data">
                 <p><b>Загрузите фотографии</b></p>
-                <p><input type="file" name="photo" accept="image/jpeg"><button>Отправить</button></p>
+                <p><input type="file" name="photo" accept="image/*"><button>Отправить</button></p>
 
             </form>
         </td>
